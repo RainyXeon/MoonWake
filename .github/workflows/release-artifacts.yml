@@ -204,8 +204,8 @@ jobs:
           arch: ${{ steps.generate-args.outputs.ARCH }}
         if: ${{ env.withKernelSU == 'true' && env.withSuSFS == 'true'}}
         run: |
-          curl -LSs "https://raw.githubusercontent.com/wodanesdag/KernelSU-Next/next-susfs-4.19/kernel/setup.sh" | bash -
-          KERNELSU_NEXT_VERSION=$(cd KernelSU-Next && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
+          curl -LSs "https://raw.githubusercontent.com/wodanesdag/KernelSU-Next/susfs-4.19/kernel/setup.sh" | bash -
+          KERNELSU_NEXT_VERSION=$(cd KernelSU-Next && expr $(/usr/bin/git rev-list --count HEAD) + 10200 - 1)
           echo -e "\n💡 KernelSU Next version: $KERNELSU_NEXT_VERSION\n"
           echo -e "KERNELSU_NEXT_VERSION=$KERNELSU_NEXT_VERSION" >> $GITHUB_OUTPUT
 
