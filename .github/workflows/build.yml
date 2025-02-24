@@ -208,7 +208,7 @@ jobs:
         if: ${{ env.withKernelSU == 'true' && env.withSuSFS == 'true'}}
         run: |
           echo "" > .scmversion
-          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           KERNELSU_NEXT_VERSION=$(cd KernelSU-Next && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
           echo -e "\n💡 KernelSU Next version: $KERNELSU_NEXT_VERSION\n"
           echo -e "KERNELSU_NEXT_VERSION=$KERNELSU_NEXT_VERSION" >> $GITHUB_OUTPUT

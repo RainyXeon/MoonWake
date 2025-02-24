@@ -205,7 +205,7 @@ jobs:
         if: ${{ env.withKernelSU == 'true' && env.withSuSFS == 'true'}}
         run: |
           echo "" > .scmversion
-          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           KERNELSU_NEXT_VERSION=$(cd KernelSU-Next && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
           echo -e "\n💡 KernelSU Next version: $KERNELSU_NEXT_VERSION\n"
           echo -e "KERNELSU_NEXT_VERSION=$KERNELSU_NEXT_VERSION" >> $GITHUB_OUTPUT
@@ -270,7 +270,7 @@ jobs:
           prerelease: false
           draft: false
           generate_release_notes: false
-          body: "Redmi Note 12 Pro 5G (ruby) kernel patched with [KernelSU-Next](https://github.com/rifsxd/KernelSU-Next) ${{ steps.integrate-kernelsu-next.outputs.KERNELSU_NEXT_VERSION }} + [SuSFS patches](https://gitlab.com/simonpunk/susfs4ksu).\n\n**Installation:**\n1. Flash the kernel from this release.\n2. Download and install the KernelSU-Next manager APK from here:\n> [Stable Version](https://github.com/rifsxd/KernelSU-Next/releases) || [Nightly Version](https://nightly.link/rifsxd/KernelSU-Next/workflows/build-manager/next/manager)\n\n3. Download and install the SuSFS Module from here: https://github.com/sidex15/susfs4ksu-module/releases/latest"
+          body: "Redmi Note 12 Pro 5G (ruby) kernel patched with [KernelSU-Next](https://github.com/KernelSU-Next/KernelSU-Next) ${{ steps.integrate-kernelsu-next.outputs.KERNELSU_NEXT_VERSION }} + [SuSFS patches](https://gitlab.com/simonpunk/susfs4ksu).\n\n**Installation:**\n1. Flash the kernel from this release.\n2. Download and install the KernelSU-Next manager APK from here:\n> [Stable Version](https://github.com/KernelSU-Next/KernelSU-Next/releases) || [Nightly Version](https://nightly.link/KernelSU-Next/KernelSU-Next/workflows/build-manager/next/manager)\n\n3. Download and install the SuSFS Module from here: https://github.com/sidex15/susfs4ksu-module/releases/latest"
           files: "${{ env.WORKSPACE }}/${{ env.KERNEL_DEVICE }}-Next-SuSFS-${{ steps.integrate-kernelsu-next.outputs.KERNELSU_NEXT_VERSION }}-${{ env.builddate }}.zip"
           fail_on_unmatched_files: true
           preserve_order: true    
