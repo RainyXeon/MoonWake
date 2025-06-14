@@ -68,6 +68,9 @@ struct ptrace_peeksiginfo_args {
 #define PTRACE_SECCOMP_GET_FILTER	0x420c
 #define PTRACE_SECCOMP_GET_METADATA	0x420d
 
+#define PTRACE_EVENTMSG_SYSCALL_ENTRY	1
+#define PTRACE_EVENTMSG_SYSCALL_EXIT	2
+
 struct seccomp_metadata {
 	__u64 filter_off;	/* Input: which filter */
 	__u64 flags;		/* Output: filter's flags */
